@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+
+        body {
+            font-family: 'Neucha', cursive;
+            line-height: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 50px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 5px auto;
+            border: 3px solid black;
+        }
+
+        .jumbo {
+            width: 100%;
+        }
+
+        .thumbnails {
+            background-color: black;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .thumb {
+            width: 33.3%;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .selected {
+            opacity: .3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>WALLPAPER GALLERY</h1>
+    <div class="container">
+        <img class="jumbo" src="img/annie-spratt-fqNQl1UNG_o-unsplash.jpg" alt="">
+        <div class="thumbnails">
+            <img src="img/annie-spratt-fqNQl1UNG_o-unsplash.jpg" class="thumb selected">
+            <img src="img/filedoesnotexist-rOKt29f_Oj0-unsplash.jpg" class="thumb">
+            <img src="img/klim-musalimov-3D9xWzuKGTE-unsplash.jpg" class="thumb">
+            <img src="img/markus-winkler-Hmcpg4cnSRA-unsplash.jpg" class="thumb">
+            <img src="img/parth-patel-DDRlVT9A48c-unsplash.jpg" class="thumb">
+            <img src="img/refargotohp-O8G6Swkxfo4-unsplash.jpg" class="thumb">
+        </div>
+    </div>
+
+    <script>
+        const jumbo = document.querySelector('.jumbo');
+        const thumb = document.querySelectorAll('.thumb');
+        thumb.forEach(e => {
+            e.addEventListener('click', function () {
+                jumbo.src = e.src;
+                thumb.forEach(e => {
+                    e.classList.remove('selected');
+                })
+                this.classList.add('selected');
+            })
+        })
+    </script>
+
+</body>
+
+</html>
